@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 
 // Chuyển sang cổng mặc định của Bizfly nếu cổng không được xác định
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 app.use(express.json());
 
