@@ -20,7 +20,7 @@ app.post('/webhook', async (req, res) => {
 
     try {
         // Gửi dữ liệu đến Power Automate (giữ nguyên logic cũ)
-        const response = await axios.post('https://...', data, {
+        const response = await axios.post('https://prod-40.southeastasia.logic.azure.com:443/workflows/9b00cdcb0a17402d82807f523828af85/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0zVHvd5gz_t2yGyhB8iutqxqhmI8TdBzMQ3ELCekpFU', data, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -34,10 +34,13 @@ app.post('/webhook', async (req, res) => {
 });
 
 // Endpoint để phục vụ tệp HTML xác thực Zalo
-app.get('/VTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'VTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html'));
+app.get('/zalo_verifierVTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html', (req, res) => {
+    res.sendFile(path.join(publicPath, 'VTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html'), (err) => {
+        if (err) {
+            res.status(404).send('File not found');
+        }
+    });
 });
-
 app.listen(port, () => {
     console.log(`Webhook is listening on port ${port}`);
 });
