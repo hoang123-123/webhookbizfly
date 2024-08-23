@@ -35,13 +35,13 @@ app.post('/webhook', async (req, res) => {
 
 // Endpoint để phục vụ tệp HTML xác thực Zalo
 app.get('/zalo1.html', (req, res) => {
-    res.sendFile('./zalo1.html', (err) => {
+    res.sendFile(path.resolve(__dirname, 'zalo1.html'), (err) => {
         if (err) {
             res.status(404).send('File not found');
         }
     });
 });
-// ...
+
 app.listen(port, () => {
     console.log(`Webhook is listening on port ${port}`);
 });
