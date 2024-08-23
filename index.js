@@ -34,7 +34,7 @@ app.post('/webhook', async (req, res) => {
 });
 
 // Endpoint để phục vụ tệp HTML xác thực Zalo
-app.get('/zalo_verifierVTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html', (req, res) => {
+app.get('./zalo_verifierVTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'zalo_verifierVTMv8wp_53be_y0EhDLoKY_hfL33dNS7CJ4u.html'), (err) => {
         if (err) {
             res.status(404).send('File not found');
